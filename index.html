@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-ng-app="favkpopartists">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Han's Favorite Kpop Artists</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+	</head>
+	<body data-ng-controller="contentCtrl">
+		<div class="container">
+			<header class="codrops-header">
+				<div class="my-text">K-pop Artists</div>
+			</header>
+			<div class="deco deco--title"></div>
+			<div id="slideshow" class="slideshow">
+				<div class="slide" ng-repeat="artist in artists">
+					<h2 class="slide__title slide__title--preview">{{ artist.name}} <span class="slide__price">{{ artist.group }}</span></h2>
+					<div class="slide__item">
+						<div class="slide__inner">
+							<img class="slide__img slide__img--small" ng-src="{{ artist.img_small }}" alt="Some image" />
+							<button class="action action--open" aria-label="View details"><i class="fa fa-eye"></i></button>
+						</div>
+					</div>
+					<div class="slide__content">
+						<div class="slide__content-scroller">
+							<div class="row">
+								<div class="col-md-6">
+									<img class="slide__img slide__img--large" ng-src="{{ artist.img_large }}"/>
+								</div>
+								<div class="col-md-6">
+									<div class="slide__details">
+									<h2 class="slide__title slide__title--main">{{ artist.name }}</h2>
+									<p class="slide__description">
+										DOB: {{artist.birthday}} <br><br>
+										Group: {{artist.group}} <br><br>
+										Company: {{artist.company}}<br><br>
+										Debut Year: {{artist.debut_year}}
+									</p>
+									<div>
+										<!-- <span class="slide__price slide__price--large">$39</span> -->
+										<!-- <button class="button button--buy">Add to cart</button> -->
+									</div>
+								</div><!-- /slide__details -->
+								</div>
+							</div>
+								<!-- <div class="slide__details">
+									<h2 class="slide__title slide__title--main">{{ artist.name }}</h2>
+									<p class="slide__description">Hydration for very dry skin</p>
+									<div>
+									</div>
+								</div> -->
+							</div><!-- slide__content-scroller -->
+					</div><!-- slide__content -->
+				</div>
+
+				<button class="action action--close" aria-label="Close"><i class="fa fa-close"></i></button>
+			</div>
+		</div><!-- /container -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/Controller.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/dynamics.min.js"></script>
+		<script src="js/d3-ease.v0.6.js"></script>
+		<script src="js/letters.js"></script>
+		<script src="js/segment.min.js"></script>
+		<script src="js/main.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				document.documentElement.className = 'js';
+				var slideshow = new CircleSlideshow(document.getElementById('slideshow'));
+			});
+		</script>
+	</body>
+</html>
